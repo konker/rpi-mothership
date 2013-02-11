@@ -31,11 +31,11 @@ class HttpServer(object):
 
         # set up the routes manually
         #bottle.route('/static/<filepath:path>', method='GET')(self.static)
-        bottle.route('/', method='GET')(self.index)
-        bottle.route('/nodes.json', method='GET')(self.nodes_json)
-        bottle.route('/node.json', method='GET')(self.node_json)
-        bottle.route('/register.json', method='POST')(self.register_post)
-        bottle.route('/log.json', method='GET')(self.log_json)
+        #bottle.route('/', method='GET')(self.index)
+        bottle.route('/ms/nodes.json', method='GET')(self.nodes_json)
+        bottle.route('/ms/node.json', method='GET')(self.node_json)
+        bottle.route('/ms/register.json', method='POST')(self.register_post)
+        bottle.route('/ms/log.json', method='GET')(self.log_json)
 
 
     def start(self, host, port):
@@ -79,7 +79,7 @@ class HttpServer(object):
             # add server timestamp
             node["server_timestamp"] = time.time() * 1000
 
-            self.nodes[node["id"]] = node
+            self.nodes[node['id']] = node
             logging.info("Registered node: %s", node["id"])
         except:
             ret = {"status": "ERROR", "body": traceback.format_exc()}

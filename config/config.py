@@ -11,7 +11,7 @@ config = {
     "debug": True,
 
     "http_host": "0.0.0.0",
-    "http_port": 9400,
+    "http_port": 9500,
 
     #[TODO]
     "ssl_cert": None,

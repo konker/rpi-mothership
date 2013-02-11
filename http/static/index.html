@@ -41,7 +41,6 @@
 
   <script type="text/x-handlebars" data-template-name="main">
       {{view App.NodeListView}}
-      {{view App.LogView}}
   </script>
   <script type="text/x-handlebars" data-template-name="node-list">
     <section class="row" id="nodes">
@@ -71,48 +70,36 @@
             <h4><i class="icon-info-sign"></i> info</h4>
             <dl class="dl-horizontal">
               <dt class="status">status</dt>
-              <dd class="status">{{node.info.status}}</dd>
+              <dd class="status">{{node.status}}</dd>
               <dt class="timestamp">timestamp</dt>
-              <dd class="timestamp">{{format_timestamp node.info.timestamp}}</dd>
+              <dd class="timestamp">{{format_timestamp node.timestamp}}</dd>
               <dt class="server_timestamp">server timestamp</dt>
-              <dd class="server_timestamp">{{format_timestamp node.info.server_timestamp}}</dd>
-              <dt class="ip_address">ip address</dt>
-              <dd class="ip_address">{{node.info.ip_address}}</dd>
-              <dt class="ip_address2">ip address 2</dt>
-              <dd class="ip_address2">{{node.info.ip_address2}}</dd>
-              <dt class="net_interfaces">net interfaces</dt>
-              <dd class="net_interfaces">{{node.info.net_interfaces}}</dd>
-              <dt class="cur_essid">current ESSID</dt>
-              <dd class="cur_essid">{{node.info.cur_essid}}</dd>
-              <dt class="host">host</dt>
-              <dd class="host">{{node.info.host}}</dd>
+              <dd class="server_timestamp">{{format_timestamp node.server_timestamp}}</dd>
               <dt class="uptime">uptime</dt>
-              <dd class="uptime">{{format_secs node.info.uptime_secs}}</dd>
+              <dd class="uptime">{{format_secs node.uptime_secs}}</dd>
+              <dt class="ipv4_addresses">ipv4 address</dt>
+              <dd class="ipv4_addresses">{{node.ipv4_addresses}}</dd>
+              <dt class="ipv6_addresses">ipv6 address</dt>
+              <dd class="ipv6_addresses">{{node.ipv6_addresses}}</dd>
+              <dt class="ifconfig">ifconfig</dt>
+              <dd class="ifconfig"><pre>{{node.ifconfig}}</pre></dd>
+              <dt class="hostname">host</dt>
+              <dd class="hostname">{{node.hostname}}</dd>
               <dt class="load_average">load average</dt>
-              <dd class="load_average">{{node.info.load_average}}</dd>
-              <dt class="data_size">data size</dt>
-              <dd class="data_size">{{format_kb node.info.data_size_kb}}</dd>
-              <dt class="free_space">free space</dt>
-              <dd class="free_space">{{format_b node.info.free_space_b}}</dd>
+              <dd class="load_average">{{node.load_average}}</dd>
+              <dt class="sys_temperature">system temp.</dt>
+              <dd class="sys_temperature">{{node.sys_temperature}}&deg;C</dd>
+              <dt class="gpu_temperature">gpu temp.</dt>
+              <dd class="gpu_temperature">{{node.gpu_temperature}}&deg;C</dd>
               <dt class="available_memory">available RAM</dt>
-              <dd class="available_memory">{{format_kb node.info.available_memory_kb}}</dd>
+              <dd class="available_memory">{{format_kb node.available_memory_kb}}</dd>
               <dt class="free_memory">free RAM</dt>
-              <dd class="free_memory">{{format_kb node.info.free_memory_kb}}</dd>
-              <dt class="dashboard">dashboard</dt>
-              <dd class="dashboard"><a {{bindAttr href="node.info.dashboard_url"}}>{{node.info.dashboard_url}}</a></dd>
-
-              <dt class="dashboard_short_host"></dt>
-              <dd class="dashboard"><a {{bindAttr href="node.info.dashboard_url_short_host"}}>{{node.info.dashboard_url_short_host}}</a></dd>
-
-              <dt class="dashboard_ip_address"></dt>
-              <dd class="dashboard"><a {{bindAttr href="node.info.dashboard_url_ip_address"}}>{{node.info.dashboard_url_ip_address}}</a></dd>
-
-              <dt class="dashboard_ip_address2"></dt>
-              <dd class="dashboard"><a {{bindAttr href="node.info.dashboard_url_ip_address2"}}>{{node.info.dashboard_url_ip_address2}}</a></dd>
+              <dd class="free_memory">{{format_kb node.free_memory_kb}}</dd>
+              <dt class="available_disk">available disk</dt>
+              <dd class="available_disk">{{format_kb node.available_disk_kb}}</dd>
+              <dt class="free_disk">free disk</dt>
+              <dd class="free_disk">{{format_kb node.free_disk_kb}}</dd>
             </dl>
-            <div id="latest-img">
-                <a {{bindAttr href="node.info.latest_img_url"}}><img {{bindAttr src="node.info.latest_img_url"}} /></a>
-            </div>
             <!--[Need to disable this if host is not publically visible]
             <button {{action refresh}} type="button" class="nodeRefresh btn btn-small btn-warning refresh"><i class="icon-refresh icon-white"></i> refresh</button>
             -->

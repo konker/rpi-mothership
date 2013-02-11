@@ -1,8 +1,8 @@
 App = Ember.Application.create({
     VERSION: "0.1",
-    NODES_JSON_URL: '/meerkat/nodes.json',
-    NODE_JSON_URL: '/meerkat/node.json',
-    LOG_JSON_URL: '/meerkat/log.json',
+    NODES_JSON_URL: '/ms/nodes.json',
+    NODE_JSON_URL: '/ms/node.json',
+    LOG_JSON_URL: '/ms/log.json',
 
     ready: function() {
         App.util.init();
