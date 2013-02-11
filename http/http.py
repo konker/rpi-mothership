@@ -78,6 +78,7 @@ class HttpServer(object):
 
             # add server timestamp
             node["server_timestamp"] = time.time() * 1000
+            node["timestamp_drift"] = node["server_timestamp"] - node["timestamp"]
 
             self.nodes[node['id']] = node
             logging.info("Registered node: %s", node["id"])
