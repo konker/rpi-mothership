@@ -59,7 +59,7 @@
 
   <script type="text/x-handlebars" data-template-name="node">
       <!--START:NODE -->
-      <div class="node row" {{bindAttr id="node.id"}}>
+      <div class="node row closed" {{bindAttr id="node.id"}}>
         <h3 {{action toggleOpen}}>
           <i class="icon-chevron-right"></i>
           <span class="node-label">{{node.id}}</span>
@@ -83,6 +83,8 @@
               <dd class="ipv6_addresses">{{node.ipv6_addresses}}</dd>
               <dt class="ifconfig">ifconfig</dt>
               <dd class="ifconfig"><pre>{{node.ifconfig}}</pre></dd>
+              <dt class="iwconfig">iwconfig</dt>
+              <dd class="iwconfig"><pre>{{node.iwconfig}}</pre></dd>
               <dt class="hostname">host</dt>
               <dd class="hostname">{{node.hostname}}</dd>
               <dt class="load_average">load average</dt>
@@ -99,6 +101,8 @@
               <dd class="available_disk">{{format_kb node.available_disk_kb}}</dd>
               <dt class="free_disk">free disk</dt>
               <dd class="free_disk">{{format_kb node.free_disk_kb}}</dd>
+              <dt class="notes">notes</dt>
+              <dd class="notes">{{node.notes}}</dd>
             </dl>
             <!--[Need to disable this if host is not publically visible]
             <button {{action refresh}} type="button" class="nodeRefresh btn btn-small btn-warning refresh"><i class="icon-refresh icon-white"></i> refresh</button>
